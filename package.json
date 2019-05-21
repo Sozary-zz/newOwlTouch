@@ -1,0 +1,24 @@
+{
+  "name": "newOwlTouch",
+  "version": "1.0.0",
+  "description": "-> Use https://leafletjs.com/ and https://github.com/Drigtime/owltouch/blob/master/src/public/js/map/map.js for maps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sozary/newOwlTouch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sozary/newOwlTouch/issues"
+  },
+  "homepage": "https://github.com/Sozary/newOwlTouch#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "nodemon": "^1.19.0"
+  }
+}
