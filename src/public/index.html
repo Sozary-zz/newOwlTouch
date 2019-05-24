@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <title>Document</title>
+    <style>
+        #mapid {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        body {
+            margin: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mapid"></div>
+    <img src="/src/data/tiles/amakna/0/1/1.jpg" alt="">
+    <script>
+        var mymap = L.map('mapid', {
+            crs: L.CRS.Simple,
+            // center: [-250, 315],
+            center: [-250, 425],
+            // zoom: 0,
+            zoom: 4,
+            layers: [L.tileLayer('./data/tiles/amakna/{z}/{x}/{y}.jpg', {
+                minZoom: 0,
+                maxZoom: 4,
+                noWrap: true,
+
+            })],
+            zoomControl: false,
+        }).setView({
+            lat: -250,
+            lng: 425
+        })
+
+        var southWest = L.latLng(69.5, 6517),
+            northEast = L.latLng(50, 4973);
+        var bounds = L.latLngBounds(southWest, northEast);
+
+        mymap.setMaxBounds(bounds);
+        mymap.on('drag', function () {
+            mymap.panInsideBounds(bounds, {
+                animate: false
+            });
+        });
+        // L.tileLayer('./../data/tiles/amakna/{z}/{x}/{y}.jpg', {
+        //     minZoom: 0,
+        //     maxZoom: 4,
+        //     noWrap: true,
+        // }).addTo(mymap);
+    </script>
+</body>
+
+</html>
